@@ -1,0 +1,7 @@
+__pycache__/
+models/
+.mypy_cache/
+api/__pycache__/
+api/v1/__pycache__/
+core/__pycache__/
+schemes/__pycache__/
