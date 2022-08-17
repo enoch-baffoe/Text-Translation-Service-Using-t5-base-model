@@ -21,6 +21,11 @@ The api service is built using [Fastapi](https://fastapi.tiangolo.com/)
 
 After running the app, the documentation is available at the "/docs" endpoint
 
+## Hardware Requirements
+Minimum hardware requirements 
+CPU: 4GB RAM
+DISK: 2GB
+
 ## Run Locally
 You need to have in order to successfully run the project.
   - [Python 3.9](https://www.python.org/downloads/release/python-390/)
