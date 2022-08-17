@@ -1,8 +1,7 @@
 from fastapi import APIRouter, status
-from transformers import T5Tokenizer, T5ForConditionalGeneration
+from transformers import T5ForConditionalGeneration, T5Tokenizer
 
 from schemes.translate import Languages
-
 
 translation_router = APIRouter(tags=["Translate"])
 
@@ -39,19 +38,19 @@ async def translate(
         - success: boolean to show if text was successfully translated
         - translated_text: the translated text from the algorithm
     """
-    input_ids = tokenizer(
+    token_input = (
         "translate "
         + source_language.value
         + " to "
         + destination_language.value
         + ": "
-        + input_text,
-        return_tensors="pt",
-    ).input_ids
+        + input_text
+    )
+    input_ids = tokenizer(token_input, return_tensors="pt").input_ids  # type: ignore[name-defined]
 
-    outputs = model.generate(input_ids)
+    outputs = model.generate(input_ids)  # type: ignore[name-defined]
 
-    translated_text = tokenizer.decode(outputs[0], skip_special_tokens=True)
+    translated_text = tokenizer.decode(outputs[0], skip_special_tokens=True)  # type: ignore[name-defined]
     if translated_text:
         return {"success": True, "translated_text": translated_text}
     return {"success": False, "translated_text": None}
