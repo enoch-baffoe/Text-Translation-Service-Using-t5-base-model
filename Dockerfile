@@ -18,15 +18,8 @@ RUN pip install -r requirements.txt
 FROM base as builder
 WORKDIR /app
 
-
-
-
-
 #copy files to container
 COPY . /app
 
-
-
-
-#Run server
+#Run server on port 80
 CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "80"]
