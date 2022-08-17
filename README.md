@@ -60,7 +60,7 @@ Start the server
 To deploy the project,
 1. Build the image with
 ```bash
-  $ docker build . -t t5-base-api-service_v1   
+  $ docker build . -t t5-base-api-service
 ```
 
 2. Then run it in a container
