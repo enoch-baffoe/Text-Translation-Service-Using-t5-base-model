@@ -14,7 +14,9 @@ def save_model():
     """Function to load tokenizer and model from online
     and then save it to the folder named models
     """
-    tokenizer_online = T5Tokenizer.from_pretrained("t5-base", model_max_length=512)
+    tokenizer_online = T5Tokenizer.from_pretrained(
+        "t5-base", model_max_length=512, force_download=True
+    )
     model_online = T5ForConditionalGeneration.from_pretrained(
         "t5-base", return_dict=True
     )
