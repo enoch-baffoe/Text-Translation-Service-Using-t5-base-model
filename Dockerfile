@@ -21,5 +21,6 @@ WORKDIR /app
 #copy files to container
 COPY . /app
 
+EXPOSE 80
 #Run server on port 80
 CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "80"]
